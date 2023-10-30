@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* This is your global CSS Stylesheet */
+/* Change on your own risk */
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    font-family: "Bricolage Grotesque", sans-serif;
+  }
+
+  /* Testimonial Section */
+  .testimonial-card::-webkit-scrollbar {
+    display: none;
+  } /* Hide scrollbar for Chrome, Safari and Opera */
+  .testimonial-card {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  .testimonial__card__container {
+    position: relative;
+    z-index: 2;
+    isolation: isolate;
+  }
+  .testimonial__card__container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 100%;
+    background-color: #141416;
+    z-index: 0;
+    -webkit-mask-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 1),
+      rgba(0, 0, 0, 0)
+    );
+  }
+  .testimonial__card__container::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 200px;
+    height: 100%;
+    background-color: #141416;
+    z-index: 0;
+    -webkit-mask-image: linear-gradient(
+      to left,
+      rgba(0, 0, 0, 1),
+      rgba(0, 0, 0, 0)
+    );
+  }
+
+  @media (max-width: 768px) {
+    .testimonial__card__container::before,
+    .testimonial__card__container::after {
+      width: 30px;
+    }
+  }
+
+  /* This is the css for transparent mobile menu */
+  .main-nav-menu-mobile {
+    background: rgba(107, 106, 106, 0.5);
+    backdrop-filter: blur(100px);
+    -webkit-backdrop-filter: blur(100px);
+  }
+
+  /* Navbar --> Navbar.jsx */
+  .header-menu > ul > li {
+    border-bottom: 1px solid transparent;
+  }
+}
